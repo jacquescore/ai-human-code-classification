@@ -5,8 +5,9 @@ print("Script starting...")
 def main():
     print("Starting main function...")
     # Run the preprocessing function
-    load_data()
-    
+    data = load_data("data/human_code.csv", "data/GPT_code.csv")
+    print(f"Data shape: {data.shape}")  # Just for confirmation
+
 if __name__ == '__main__':
     print("Running as main module...")
     main()
