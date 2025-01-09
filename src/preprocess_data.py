@@ -2,9 +2,9 @@ import pandas as pd
 import re
 import string
 
-def preprocess_code(code_sample):
-    # Remove comments
-    code_sample = re.sub(r'#.*', '', code_sample)  # Removes single-line comments
+def clean_code(code_sample):
+    # Remove single-line comments
+    code_sample = re.sub(r'#.*', '', code_sample)
 
     # Remove any lines that are blank or contain only spaces
     code_sample = re.sub(r'^\s*\n', '', code_sample, flags=re.MULTILINE)
@@ -16,9 +16,9 @@ def load_data(human_code_path, GPT_code_path):
     human_data = pd.read_csv(human_code_path, sep=',', quotechar='"', on_bad_lines='skip')
     ai_data = pd.read_csv(GPT_code_path, sep=',', quotechar='"', on_bad_lines='skip')
 
-    # Apply preprocessing to code samples in each dataset
-    human_data['code'] = human_data['code'].apply(preprocess_code)
-    ai_data['code'] = ai_data['code'].apply(preprocess_code)
+    # Apply cleaning to code samples in each dataset
+    human_data['code'] = human_data['code'].apply(clean_code)
+    ai_data['code'] = ai_data['code'].apply(clean_code)
 
     # Add labels to differentiate data sources
     human_data['label'] = 'human'
