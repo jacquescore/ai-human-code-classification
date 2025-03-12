@@ -1,121 +1,356 @@
 task,code,label
-"Given an array arr[], the task is to find the subarray that has the maximum sum and return its sum.","def maxSubarraySum(arr):
-    res = arr[0]
-    maxEnding = arr[0]
-    for i in range(1, len(arr)):
-        maxEnding = max(maxEnding + arr[i], arr[i])
-        res = max(res, maxEnding)
-    return res
-arr = [2, 3, -8, 7, -1, 2, 3]
-print(maxSubarraySum(arr))",human
-"Given an array arr[] of size n-1 with integers in the range of [1, n], the task is to find the missing number from the first n integers. Note: There are no duplicates in the list.","def missingNumber(arr):
-    n = len(arr) + 1
-    totalSum = sum(arr)
-    expectedSum = (n * (n + 1)) // 2
-    return expectedSum - totalSum
-arr = [1, 2, 3, 5]
-print(missingNumber(arr))",human
-"Trapping Rainwater Problem states that given an array of n non-negative integers arr[] representing an elevation map where the width of each bar is 1, compute how much water it can trap after rain.","def maxWater(arr):
-    left = 1
-    right = len(arr) - 2
-    lMax = arr[left - 1]
-    rMax = arr[right + 1]
-    res = 0
-    while left <= right:
-        if rMax <= lMax:
-            res += max(0, rMax - arr[right])
-            rMax = max(rMax, arr[right])
-            right -= 1
-        else: 
-            res += max(0, lMax - arr[left])
-            lMax = max(lMax, arr[left])
-            left += 1
-    return res
-arr = [2, 1, 5, 3, 1, 0, 4]
-print(maxWater(arr))",human
-"Given an integer array, the task is to find the maximum product of any subarray.","def max_product(arr):
-    n = len(arr)
-    currMax = arr[0]
-    currMin = arr[0]
-    maxProd = arr[0]
-    for i in range(1, n):
-        temp = max(arr[i], arr[i] * currMax, arr[i] * currMin)
-        currMin = min(arr[i], arr[i] * currMax, arr[i] * currMin)
-        currMax = temp
-        maxProd = max(maxProd, currMax)
-    return maxProd
-arr = [-2, 6, -3, -10, 0, 2]
-print(max_product(arr))",human
-"Given an array arr[] of size n, return an equilibrium index (if any) or -1 if no equilibrium index exists. The equilibrium index of an array is an index such that the sum of elements at lower indexes equals the sum of elements at higher indexes.Note: Return equilibrium point in 1-based indexing. Return -1 if no such point exists.","def equilibriumPoint(arr):
-    n = len(arr)
-    left = 0
-    pivot = 0
-    right = sum(arr[1:])  
-    while pivot < n - 1 and right != left:
-        pivot += 1
-        right -= arr[pivot]
-        left += arr[pivot - 1]
-    return pivot + 1 if left == right else -1
-arr = [1, 7, 3, 6, 5, 6]
-result = equilibriumPoint(arr)
+write a python program to add two numbers ,"num1 = 1.5
+num2 = 6.3
+sum = num1 + num2
+print(f'Sum: {sum}')",human
+write a python program to add two numbers,"def add_two_numbers(a, b):\n    return a + b\n\nsum_result = add_two_numbers(5, 3)",ai
+write a python function to add two user provided numbers and return the sum,"def add_two_numbers(num1, num2):
+    sum = num1 + num2
+    return sum",human
+write a python function to add two user provided numbers and return the sum,def add_user_numbers():\n    a = float(input('Enter first number: '))\n    b = float(input('Enter second number: '))\n    return a + b\n\nresult = add_user_numbers(),ai
+write a program to find and print the largest among three numbers,"num1 = 10
+num2 = 12
+num3 = 14
+if (num1 >= num2) and (num1 >= num3):
+   largest = num1
+elif (num2 >= num1) and (num2 >= num3):
+   largest = num2
+else:
+   largest = num3
+print(f'largest:{largest}')",human
+write a program to find and print the largest among three numbers,"def largest_of_three(a, b, c):\n    return max(a, b, c)\n\nlargest = largest_of_three(4, 7, 3)",ai
+write a program to find and print the smallest among three numbers,"num1 = 10
+num2 = 12
+num3 = 14
+if (num1 <= num2) and (num1 <= num3):
+   smallest = num1
+elif (num2 <= num1) and (num2 <= num3):
+   smallest = num2
+else:
+   smallest = num3
+print(f'smallest:{smallest}')",human
+write a program to find and print the smallest among three numbers,"def smallest_of_three(a, b, c):\n    return min(a, b, c)\n\nsmallest = smallest_of_three(4, 7, 3)",ai
+Write a python function to merge two given lists into one,"def merge_lists(l1, l2):
+    return l1 + l2",human
+Write a python function to merge two given lists into one,"def merge_lists(list1, list2):\n    return list1 + list2\n\nmerged = merge_lists([1, 2], [3, 4])",ai
+Write a program to check whether a number is prime or not,"num = 337
+if num > 1:
+   for i in range(2, num//2 + 1):
+       if (num % i) == 0:
+           print(num,""is not a prime number"")
+           print(f""{i} times {num//i} is {num}"")
+           break
+   else:
+       print(f""{num} is a prime number"")
+else:
+   print(f""{num} is not a prime number"")",human
+Write a program to check whether a number is prime or not,"def is_prime(num):\n    if num < 2:\n        return False\n    for i in range(2, int(num ** 0.5) + 1):\n        if num % i == 0:\n            return False\n    return True\n\nprime_check = is_prime(11)",ai
+Write a python function that prints the factors of a given number,"def print_factors(x):
+   print(f""The factors of {x} are:"")
+   for i in range(1, x + 1):
+       if x % i == 0:
+           print(i)",human
+Write a python function that prints the factors of a given number,"def print_factors(num):\n    for i in range(1, num + 1):\n        if num % i == 0:\n            print(i)\n\nprint_factors(12)",ai
+Write a program to find the factorial of a number,"num = 13
+factorial = 1
+if num < 0:
+   print(""No factorials for negative numbers!"")
+elif num == 0:
+   print(""The factorial of 0 is 1"")
+else:
+   for i in range(1,num + 1):
+       factorial = factorial*i
+   print(f""The factorial of {num} is {factorial}"")",human
+Write a program to find the factorial of a number,"def factorial(n):\n    fact = 1\n    for i in range(1, n + 1):\n        fact *= i\n    return fact\n\nfact_result = factorial(5)",ai
+"Write a python function to print whether a number is negative, positive or zero","def check_pnz(num):
+    if num > 0:
+       print(""Positive number"")
+    elif num == 0:
+       print(""Zero"")
+    else:
+       print(""Negative number"")",human
+"Write a python function to print whether a number is negative, positive or zero",def check_number(num):\n    if num > 0:\n        return 'Positive'\n    elif num < 0:\n        return 'Negative'\n    else:\n        return 'Zero'\n\nresult = check_number(0),ai
+Write a program to print the multiplication table of a given number,"num = 9
+for i in range(1, 11):
+   print(f""{num} x {i} = {num*i}"")",human
+Write a program to print the multiplication table of a given number,"def multiplication_table(n):\n    for i in range(1, 11):\n        print(f'{n} x {i} = {n * i}')\n\nmultiplication_table(5)",ai
+"Write a python function to print powers of 2, for given number of terms","def two_power(terms):
+    result = list(map(lambda x: 2 ** x, range(terms)))
+    print(f""The total terms are: {terms}"")
+    for i in range(terms):
+       print(f""2^{i} = {result[i]}"")",human
+"Write a python function to print powers of 2, for given number of terms",def powers_of_two(terms):\n    for i in range(terms):\n        print(2 ** i)\n\npowers_of_two(5),ai
+Write a program to filter the numbers in a list which are divisible by a given number,"my_list = [11, 45, 74, 89, 132, 239, 721, 21]
+num = 3
+result = list(filter(lambda x: (x % num == 0), my_list))
+print(f""Numbers divisible by {num} are {result}"")",human
+Write a program to filter the numbers in a list which are divisible by a given number,"def filter_divisible(lst, divisor):\n    return [num for num in lst if num % divisor == 0]\n\nfiltered_list = filter_divisible([10, 15, 20, 25], 5)",ai
+Write a python function that returns the sum of n natural numbers,"def sum_natural(num):
+    if num < 0:
+       print(""Please enter a positive number!"")
+    else:
+       sum = 0
+       while(num > 0):
+           sum += num
+           num -= 1
+       return num",human
+Write a python function that returns the sum of n natural numbers,"def sum_of_natural_numbers(n):\n    return sum(range(1, n + 1))\n\nsum_result = sum_of_natural_numbers(5)",ai
+Write a program to swap first and last elements in a list,"my_list = [1, 2, 3, 4, 5, 6]
+my_list[0], my_list[-1] = my_list[-1], my_list[0]",human
+Write a program to swap first and last elements in a list,"def swap_first_last(lst):\n    lst[0], lst[-1] = lst[-1], lst[0]\n    return lst\n\nswapped_list = swap_first_last([1, 2, 3, 4])",ai
+"Write a python function to find the area of a circle, whose radius is given","def findArea(r): 
+    PI = 3.142
+    return PI * (r*r)",human
+"Write a python function to find the area of a circle, whose radius is given",import math\n\ndef area_of_circle(radius):\n    return math.pi * radius ** 2\n\narea = area_of_circle(5),ai
+Write a program to print the sum of squares of first n natural numbers,"n = 21
+sum_n = 0
+for i in range(1, n+1):
+    sum_n += i**2
+print(sum_n)",human
+Write a program to print the sum of squares of first n natural numbers,"def sum_of_squares(n):\n    return sum([i ** 2 for i in range(1, n + 1)])\n\nsum_squares = sum_of_squares(5)",ai
+Write a program to print the length of a list,"my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(len(my_list))",human
+Write a program to print the length of a list,"def list_length(lst):\n    return len(lst)\n\nlength = list_length([1, 2, 3, 4])",ai
+Write a pythno function to print the length of a given tuple,"my_tuple = (1, 2, 3, 4, 5, 6, 7, 8)
+print(len(my_tuple))",human
+Write a python function to print the length of a given tuple,"def tuple_length(tup):\n    return len(tup)\n\nlength = tuple_length((1, 2, 3))",ai
+"Write a python function to print the elements of a given list, one element in a line","def custom_print(l):
+    for _ in l:
+        print(_)",human
+"Write a python function to print the elements of a given list, one element in a line","def print_elements(lst):\n    for item in lst:\n        print(item)\n\nprint_elements([1, 2, 3])",ai
+Write a python function to remove all the odd numbers from a list and return the remaining list,"def remove_odd(my_list):
+    result = list(filter(lambda x: (x % 2 == 0), my_list))
+    return result",human
+Write a python function to remove all the odd numbers from a list and return the remaining list,"def remove_odds(lst):\n    return [num for num in lst if num % 2 == 0]\n\neven_list = remove_odds([1, 2, 3, 4])",ai
+Write a python function to remove all the even numbers from a list and return the remaining list,"def remove_even(my_list):
+    result = list(filter(lambda x: (x % 2 != 0), my_list))
+    return result",human
+Write a python function to remove all the even numbers from a list and return the remaining list,"def remove_evens(lst):\n    return [num for num in lst if num % 2 != 0]\n\nodd_list = remove_evens([1, 2, 3, 4])",ai
+Write a function that takes two lists as input and returns a zipped list of corresponding elements,"def zip_list(list1, list2):
+    return list(zip(list1, list2))",human
+Write a function that takes two lists as input and returns a zipped list of corresponding elements,"def zip_lists(list1, list2):\n    return list(zip(list1, list2))\n\nzipped = zip_lists([1, 2], [3, 4])",ai
+Write a program to to print the contents of a given file,"file_name = 'temp.txt'
+with open(file_name, 'r') as f:
+    print(f.read())",human
+Write a program to print the contents of a given file,"def print_file_contents(filename):\n    with open(filename, 'r') as file:\n        print(file.read())",ai
+Write a functin that returns the LCM of two input numbers,"def lcm(a, b):
+    if a>b:
+        min_ = a
+    else:
+        min_ = b
+    while True:
+        if min_%a==0 and min_%b==0:
+            break
+        min_+=1
+    return min_",human
+Write a function that returns the LCM of two input numbers,"import math\n\ndef lcm(a, b):\n    return abs(a * b) // math.gcd(a, b)\n\nlcm_result = lcm(12, 15)",ai
+Write a program to print the unique elements in a list,"my_list = [1, 2, 4, 5, 2, 3, 1, 5, 4, 7, 8, 2, 4, 5, 2, 7, 3]
+print(set(my_list))",human
+Write a program to print the unique elements in a list,"def unique_elements(lst):\n    return list(set(lst))\n\nunique_list = unique_elements([1, 2, 2, 3, 4])",ai
+Write a function that returns the sum of digits of a given number,"def digisum(num):
+    sum_=0
+    while num > 0:
+        dig = num % 10
+        sum_+=dig
+        num//=10
+    return sum_",human
+Write a function that returns the sum of digits of a given number,def sum_of_digits(num):\n    return sum(int(digit) for digit in str(num))\n\ndigit_sum = sum_of_digits(12345),ai
+Write a program to check and print whether a number is palindrome or not,"num = 12321
+temp = num
+rev = 0
+while num > 0:
+    dig = num % 10
+    rev = rev*10 + dig
+    num//=10
+if temp==rev :
+    print(""The number is a palindrome!"")
+else:
+    print(""The number isn't a palindrome!"")",human
+Write a program to check and print whether a number is palindrome or not,def is_palindrome(num):\n    return str(num) == str(num)[::-1]\n\npalindrome_check = is_palindrome(121),ai
+"Write a function that prints a given value, n number of times","def print_n(val, n):
+    for _ in range(n):
+        print(val)",human
+"Write a function that prints a given value, n number of times","def print_n_times(value, n):\n    for _ in range(n):\n        print(value)\n\nprint_n_times('Hello', 3)",ai
+Write a function to find the area of sqaure,"def square_area(a):
+    return a*a",human
+Write a function to find the area of square,def area_of_square(side):\n    return side ** 2\n\narea = area_of_square(4),ai
+Write a function to find the perimeter of a square,"def square_perimeter(a):
+    return 4*a",human
+Write a function to find the perimeter of a square,def perimeter_of_square(side):\n    return 4 * side\n\nperimeter = perimeter_of_square(4),ai
+Write a function to find the area of rectangle,"def rectangle_area(l, b):
+    return l*b",human
+Write a function to find the area of rectangle,"def area_of_rectangle(length, width):\n    return length * width\n\narea = area_of_rectangle(5, 3)",ai
+Write a function to find the permieter of a rectangle,"def rectangle_perimeter(l, b):
+    return 2*(l+b)",human
+Write a function to find the perimeter of a rectangle,"def perimeter_of_rectangle(length, width):\n    return 2 * (length + width)\n\nperimeter = perimeter_of_rectangle(5, 3)",ai
+"Write a python function to find the area of a circle, whose radius is given","def findArea(r): 
+    PI = 3.142
+    return PI * (r*r)",human
+"Write a python function to find the area of a circle, whose radius is given",import math\n\ndef area_of_circle(radius):\n    return math.pi * radius ** 2\n\narea = area_of_circle(5),ai
+Write a function to calculate and return electricity bill. Units used are given. Price per unit is fixed and is increased after 750 units.,"def calc_elect_bill(units):
+    if units > 0:
+        if units <= 750:
+            return 5*units
+        else:
+            return 5*(750) + 7*(units-750)
+    else:
+        return -1",human
+Write a function to calculate and return electricity bill. Units used are given. Price per unit is fixed and is increased after 750 units.,def electricity_bill(units):\n    if units <= 750:\n        return units * 1.5\n    else:\n        return (750 * 1.5) + ((units - 750) * 2.0)\n\nbill = electricity_bill(800),ai
+"Write a function to return day of a week, given the number","def give_day(n):
+    day_dict = {1: 'Sunday', 2: 'Monday', 3: 'Tuesday', 4: 'Wednesday', 5: 'Thursday', 6: 'Friday', 7: 'Saturday'}
+    return day_dict[n]",human
+"Write a function to return day of a week, given the number",import calendar\n\ndef day_of_week(num):\n    return calendar.day_name[num - 1]\n\nday = day_of_week(3),ai
+Write a program to calculate and print the volume of a cylender,"r = 3
+h = 5
+pi = 3.14
+volume = pi*(r**2)*h
+print(volume)",human
+Write a program to calculate and print the volume of a cylinder,"import math\n\ndef volume_of_cylinder(radius, height):\n    return math.pi * radius ** 2 * height\n\nvolume = volume_of_cylinder(3, 5)",ai
+Write a function to calculate and return the average of input numbers,"def calc_avg(*args):
+    if len(args) > 0:
+        return sum(args)/len(args)
+    return None",human
+Write a function to calculate and return the average of input numbers,"def average_of_numbers(*args):\n    return sum(args) / len(args)\n\navg = average_of_numbers(2, 4, 6, 8)",ai
+"Write a function to calculate compound interest, given p, r, t","def comp_int(p, r, t):
+    amount = p * (1 + (r/100))**t
+    interest = amount - p
+    return interest",human
+"Write a function to calculate compound interest, given p, r, t","def compound_interest(principal, rate, time):\n    return principal * (1 + rate / 100) ** time\n\ninterest = compound_interest(1000, 5, 2)",ai
+"Write a function to calculate simple interest, given p, r, t","def simp_int(p, r, t):
+    interest = (p*r*t)/100
+    return interest",human
+"Write a function to calculate simple interest, given p, r, t","def simple_interest(principal, rate, time):\n    return (principal * rate * time) / 100\n\ninterest = simple_interest(1000, 5, 2)",ai
+"Write a program to print a given string, replacing all the vowels with '_'","st = ""Where is this going? Could you please help me understand!""
+vowels = ""AEIOUaeiou""
+for v in vowels:
+    st = st.replace(v, '_')
+print(st)",human
+"Write a program to print a given string, replacing all the vowels with '_'",def replace_vowels(s):\n    return ''.join(['_' if char in 'aeiouAEIOU' else char for char in s])\n\nreplaced = replace_vowels('hello world'),ai
+Write a function to check whether a number if perfect or not,"def is_perfect(n):
+    sum_ = 0
+    for i in range(1, n//2 + 1):
+        if n%i == 0:
+            sum_+=i
+    if sum_ == n:
+        return True
+    return False",human
+Write a function to check whether a number if perfect or not,"def is_perfect(num):\n    return num == sum(i for i in range(1, num) if num % i == 0)\n\ncheck = is_perfect(28)",ai
+"Write a program to find and print the area of a triangle, whose hight and width are given.","h = 12
+w = 11
+area = 0.5*h*w
+print(area)",human
+"Write a program to find and print the area of a triangle, whose height and width are given.","def area_of_triangle(base, height):\n    return 0.5 * base * height\n\narea = area_of_triangle(10, 5)",ai
+"Write a function to find acceleration, given u, v and t","def acc(u, v, t):
+    return (v-u)/t",human
+"Write a function to find acceleration, given u, v and t","def acceleration(u, v, t):\n    return (v - u) / t\n\naccel = acceleration(0, 60, 5)",ai
+Write a lambda function to multiply two numbers,"multiply = lambda a, b: a*b",human
+Write a lambda function to multiply two numbers,"multiply = lambda x, y: x * y\n\nresult = multiply(3, 4)",ai
+Write a lambda function to add two numbers,"add = lambda a, b: a+b",human
+Write a lambda function to add two numbers,"add = lambda x, y: x + y\n\nresult = add(5, 7)",ai
+Write a lambda function that gives True if the input number is even otherwise False,even = lambda a: True if a%2 == 0 else False,human
+Write a lambda function that gives True if the input number is even otherwise False,even_check = lambda x: x % 2 == 0\n\ncheck = even_check(4),ai
+Write a lambda function to to give character grom it's ascii value,ascii = lambda a: chr(a),human
+Write a lambda function to to give character from its ascii value,char_from_ascii = lambda x: chr(x)\n\ncharacter = char_from_ascii(65),ai
+Write a lambda function to that gives the number of digits in a number,dig_cnt = lambda a: len(str(a)),human
+Write a lambda function to that gives the number of digits in a number,digit_count = lambda x: len(str(abs(x)))\n\ncount = digit_count(12345),ai
+"Write a program to to check if a triangle is valid or not, given it's all three angles","def is_valid_triangle_angle(a, b c):
+    if a+b+c == 180:
+        return True
+    return False",human
+"Write a program to to check if a triangle is valid or not, given its all three angles","def is_triangle_valid(a, b, c):\n    return a + b + c == 180\n\nvalid = is_triangle_valid(60, 60, 60)",ai
+"Write a program to to check if a triangle is valid or not, given it's all three sides' length","def is_valid_triangle_length(a, b c):
+    if a>0 and b>0 and c>0:
+        if a+b > c and a+c > b and b+c > a:
+            return True
+    return False",human
+"Write a program to to check if a triangle is valid or not, given its all three sides' length","def is_triangle_valid(s1, s2, s3):\n    return s1 + s2 > s3 and s2 + s3 > s1 and s1 + s3 > s2\n\nvalid = is_triangle_valid(3, 4, 5)",ai
+Write a lambda functio that gives the word count in a statement.,count_word = lambda s: len(s.split(' ')),human
+Write a lambda function that gives the word count in a statement.,word_count = lambda statement: len(statement.split())\n\ncount = word_count('This is a test'),ai
+Write a program to extract and print digits of a number in reverse order. The number is input from user.,"num = int(input(""Enter a number with multiple digit: ""))
+n=0
+while num>0:
+    a = num%10
+    num = num - a
+    num = num/10
+    print(int(a),end="""")
+    n = n + 1",human
+Write a program to extract and print digits of a number in reverse order. The number is input from user.,def reverse_digits(num):\n    return ''.join(reversed(str(num)))\n\nreversed_digits = reverse_digits(12345),ai
+"Write a function that takes in height(m) and weight(kg), calculates BMI and prints the comments","def bmi(height: ""Meters"", weight: ""Kgs""):
+    bmi = weight/(height**2) 
+    print(""Your BMI is: {0} and you are "".format(bmi), end='')
+    if ( bmi < 16):
+       print(""severely underweight."")
+    elif ( bmi >= 16 and bmi < 18.5):
+       print(""underweight."")
+    elif ( bmi >= 18.5 and bmi < 25):
+       print(""healthy."")
+    elif ( bmi >= 25 and bmi < 30):
+       print(""overweight."")
+    elif ( bmi >=30):
+       print(""severely overweight."")",human
+"Write a function that takes in height(m) and weight(kg), calculates BMI and prints the comments","def calculate_bmi(height, weight):\n    bmi = weight / height ** 2\n    if bmi < 18.5:\n        return 'Underweight'\n    elif bmi < 24.9:\n        return 'Normal'\n    else:\n        return 'Overweight'\n\nbmi_category = calculate_bmi(1.75, 70)",ai
+Write a program that prints all the alphabets in a string and skips all other characters,"string = ""$john.snow
+for ch in string:
+    if (ch>='A' and ch<='Z') or (ch>='a' and ch<='z'):
+        print(ch, end='')
+    else:
+        pass",human
+Write a program that prints all the alphabets in a string and skips all other characters,def print_alphabets(s):\n    for char in s:\n        if char.isalpha():\n            print(char)\n\nprint_alphabets('hello123'),ai
+Write a function that takes number of disks in tower of hanaoi problem and returns the minimum number of steps required,"def hanoi(x):
+    if x == 1:
+        return 1
+    else:
+        return 2*hanoi(x-1) + 1",human
+Write a function that takes number of disks in tower of hanoi problem and returns the minimum number of steps required,def tower_of_hanoi(n): return 2 ** n - 1,ai
+Write a lambda function to convert centimeters to inches,cm_to_inch = lambda x: x/2.54,human
+Write a lambda function to convert centimeters to inches,cm_to_inch = lambda cm: cm / 2.54,ai
+Write a lambda function to find the union of two lists,"union = lambda a, b: list(set(a)|set(b))",human
+Write a lambda function to find the union of two lists,"union = lambda list1, list2: list(set(list1) | set(list2))",ai
+Write a lambda function to find the intersection of two lists,"intersection = lambda a, b: list(set(a)&set(b))",human
+Write a lambda function to find the intersection of two lists,"intersection = lambda list1, list2: list(set(list1) & set(list2))",ai
+Write a program that adds the square of two numbers and prints it,"a = 32
+b = 21
+result = a**2 + b**2
 print(result)",human
-"Given an array arr[], the task is to find the subarray that has the maximum sum and return its sum.","def max_subarray_sum(arr):
-    max_sum = arr[0]
-    current_sum = arr[0]
-    for i in range(1, len(arr)):
-        current_sum = max(arr[i], current_sum + arr[i])
-        max_sum = max(max_sum, current_sum)
-    return max_sum
-arr = [2, 3, -8, 7, -1, 2, 3]
-print(max_subarray_sum(arr))  ",ai
-"Given an array arr[] of size n-1 with integers in the range of [1, n], the task is to find the missing number from the first n integers. Note: There are no duplicates in the list.","def find_missing_number(arr, n):
-    expected_sum = n * (n + 1) // 2
-    actual_sum = sum(arr)
-    return expected_sum - actual_sum
-arr = [1, 2, 3, 5]
-n = 5
-print(find_missing_number(arr, n))  ",ai
-"Trapping Rainwater Problem states that given an array of n non-negative integers arr[] representing an elevation map where the width of each bar is 1, compute how much water it can trap after rain.","def trap_rainwater(arr):
-    n = len(arr)
-    if n < 3:
-        return 0
-    left_max = [0] * n
-    right_max = [0] * n
-    water_trapped = 0
-    left_max[0] = arr[0]
-    for i in range(1, n):
-        left_max[i] = max(left_max[i - 1], arr[i])
-    right_max[n - 1] = arr[n - 1]
-    for i in range(n - 2, -1, -1):
-        right_max[i] = max(right_max[i + 1], arr[i])
-    for i in range(n):
-        water_trapped += max(0, min(left_max[i], right_max[i]) - arr[i])
-    return water_trapped
-arr = [2, 1, 5, 3, 1, 0, 4]
-print(trap_rainwater(arr))  ",ai
-"Given an integer array, the task is to find the maximum product of any subarray.","def max_product_subarray(arr):
-    n = len(arr)
-    if n == 0:
-        return 0
-    max_product = arr[0]
-    current_max = arr[0]
-    current_min = arr[0]
-    for i in range(1, n):
-        if arr[i] < 0:
-            current_max, current_min = current_min, current_max
-        current_max = max(arr[i], current_max * arr[i])
-        current_min = min(arr[i], current_min * arr[i])
-        max_product = max(max_product, current_max)
-    return max_product
-arr = [-2, 6, -3, -10, 0, 2]
-print(max_product_subarray(arr))  ",ai
-"Given an array arr[] of size n, return an equilibrium index (if any) or -1 if no equilibrium index exists. The equilibrium index of an array is an index such that the sum of elements at lower indexes equals the sum of elements at higher indexes.Note: Return equilibrium point in 1-based indexing. Return -1 if no such point exists.","def find_equilibrium_index(arr):
-    total_sum = sum(arr)
-    left_sum = 0
-    for i in range(len(arr)):
-        if left_sum == (total_sum - left_sum - arr[i]):
-            return i + 1  
-        left_sum += arr[i]
-    return -1
-arr = [1, 7, 3, 6, 5, 6]
-print(find_equilibrium_index(arr))  ",ai
+Write a program that adds the square of two numbers and prints it,"def sum_of_squares(a, b): return a**2 + b**2",ai
+Write a python function to concat the input strings and there's also a choice for seperator,"def con_str(*args, sep = ' '):
+  return sep.join(args)",human
+Write a python function to concat the input strings and there's also a choice for separator,"def concat_strings(*args, separator=' '): return separator.join(args)",ai
+Write a program to print all the even numbers in a range,"r1, r2 = 1, 28
+for _ in range(r1, r2+1):
+  if _%2 == 0:
+    print(_)",human
+Write a program to print all the even numbers in a range,"def print_even_numbers(start, end): return [num for num in range(start, end+1) if num % 2 == 0]",ai
+write a python program to sort dictionary items,"dict1 = {'car': [7, 6, 3],  
+             'bike': [2, 10, 3],  
+             'truck': [19, 4]}
+print(f""The original dictionary is : {str(dict1)}"") 
+res = dict() 
+for key in sorted(dict1): 
+    res[key] = sorted(dict1[key])
+print(f""The sorted dictionary : {str(res)}"")",human
+write a python program to sort dictionary items,def sort_dict(d): return dict(sorted(d.items())),ai
+write a program to display date and time,"import datetime
+now = datetime.datetime.now()
+time= now.strftime(""%Y-%m-%d %H:%M:%S"")
+print(f""Current date and time : {time}"")",human
+write a program to display date and time,from datetime import datetime; print(datetime.now()),ai
+write a program to return the absolute value,"num = -10
+print(f'Absolute of {num} is {abs(num)}')",human
+write a program to return the absolute value,def absolute_value(num): return abs(num),ai
+write a python program to check the length of list,"sample_list = ['a','b','c']
+print(f'length of sample_list is {len(sample_list)}')",human
+write a python program to check the length of list,def list_length(lst): return len(lst),ai
+write a Python program to calculate number of days between two dates.,"from datetime import date
+f_date = date(2019, 4, 15)",human
+write a Python program to calculate number of days between two dates. YYYY/MM/DD,"from datetime import datetime; date1 = datetime.strptime('2025/01/01', '%Y/%m/%d'); date2 = datetime.strptime('2025/03/01', '%Y/%m/%d'); print((date2 - date1).days)",ai
+YYYY/MM/DD,"l_date = date(2020, 4, 15)",human
+write a Python program to convert Python objects into JSON strings,"import json; obj = {'name': 'John', 'age': 30}; print(json.dumps(obj))",ai
+YYYY/MM/DD,"delta = l_date - f_date
+print(f'No of days between {f_date} and {l_date} is:{delta.days}')",human
+write a Python program to get the largest number from a list,def largest_number(lst): return max(lst),ai
+write a Python program to convert Python objects into JSON strings.,"import json
+python_dict =  {""name"": ""David"", ""age"": 6, ""class"":""I""}
+json_dict = json.dumps(python_dict, sort_keys=True, indent=4)
+print(f""json dict : {json_dict}"")",human
+write a Python program to remove duplicates from a list,def remove_duplicates(lst): return list(set(lst)),ai

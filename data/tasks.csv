@@ -1,0 +1,72 @@
+task
+write a python program to add two numbers 
+write a python function to add two user provided numbers and return the sum
+write a program to find and print the largest among three numbers
+write a program to find and print the smallest among three numbers
+Write a python function to merge two given lists into one
+Write a program to check whether a number is prime or not
+Write a python function that prints the factors of a given number
+Write a program to find the factorial of a number
+"Write a python function to print whether a number is negative, positive or zero"
+Write a program to print the multiplication table of a given number
+"Write a python function to print powers of 2, for given number of terms"
+Write a program to filter the numbers in a list which are divisible by a given number
+Write a python function that returns the sum of n natural numbers
+Write a program to swap first and last elements in a list
+"Write a python function to find the area of a circle, whose radius is given"
+Write a program to print the sum of squares of first n natural numbers
+Write a program to print the length of a list
+Write a pythno function to print the length of a given tuple
+"Write a python function to print the elements of a given list, one element in a line"
+Write a python function to remove all the odd numbers from a list and return the remaining list
+Write a python function to remove all the even numbers from a list and return the remaining list
+Write a function that takes two lists as input and returns a zipped list of corresponding elements
+Write a program to to print the contents of a given file
+Write a functin that returns the LCM of two input numbers
+Write a program to print the unique elements in a list
+Write a function that returns the sum of digits of a given number
+Write a program to check and print whether a number is palindrome or not
+"Write a function that prints a given value, n number of times"
+Write a function to find the area of sqaure
+Write a function to find the perimeter of a square
+Write a function to find the area of rectangle
+Write a function to find the permieter of a rectangle
+"Write a python function to find the area of a circle, whose radius is given"
+Write a function to calculate and return electricity bill. Units used are given. Price per unit is fixed and is increased after 750 units.
+"Write a function to return day of a week, given the number"
+Write a program to calculate and print the volume of a cylender
+Write a function to calculate and return the average of input numbers
+"Write a function to calculate compound interest, given p, r, t"
+"Write a function to calculate simple interest, given p, r, t"
+"Write a program to print a given string, replacing all the vowels with '_'"
+Write a function to check whether a number if perfect or not
+"Write a program to find and print the area of a triangle, whose hight and width are given."
+"Write a function to find acceleration, given u, v and t"
+Write a lambda function to multiply two numbers
+Write a lambda function to add two numbers
+Write a lambda function that gives True if the input number is even otherwise False
+Write a lambda function to to give character grom it's ascii value
+Write a lambda function to that gives the number of digits in a number
+"Write a program to to check if a triangle is valid or not, given it's all three angles"
+"Write a program to to check if a triangle is valid or not, given it's all three sides' length"
+Write a lambda functio that gives the word count in a statement.
+Write a program to extract and print digits of a number in reverse order. The number is input from user.
+"Write a function that takes in height(m) and weight(kg), calculates BMI and prints the comments"
+Write a program that prints all the alphabets in a string and skips all other characters
+Write a function that takes number of disks in tower of hanaoi problem and returns the minimum number of steps required
+Write a lambda function to convert centimeters to inches
+Write a lambda function to find the union of two lists
+Write a lambda function to find the intersection of two lists
+Write a program that adds the square of two numbers and prints it
+Write a python function to concat the input strings and there's also a choice for seperator
+Write a program to print all the even numbers in a range
+write a python program to sort dictionary items
+write a program to display date and time
+write a program to return the absolute value
+write a python program to check the length of list
+write a Python program to calculate number of days between two dates.
+YYYY/MM/DD
+YYYY/MM/DD
+write a Python program to convert Python objects into JSON strings.
+write a Python program to get the largest number from a list
+write a Python program to remove duplicates from a list
