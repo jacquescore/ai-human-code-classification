@@ -1,13 +1,11 @@
 from src.preprocess_data import load_data
-
-print("Script starting...")
+from src.machine_learning import machine_learning
 
 def main():
-    print("Starting main function...")
-    # Run the preprocessing function
-    data = load_data("data/human_code.csv", "data/GPT_code.csv")
-    print(f"Data shape: {data.shape}")  # For confirmation
+    # Run data preprocessing function
+    data = load_data("data/small_human_code.csv", "data/small_GPT_code.csv")
+    # Run machine learning function
+    machine_learning("data/combined_data.csv")
 
 if __name__ == '__main__':
-    print("Running as main module...")
     main()

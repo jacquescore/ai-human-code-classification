@@ -10,7 +10,7 @@ __pycache__/
 env/
 venv/
 
-# IDE specific files (e.g. VSCode, PyCharm)
+# IDE specific files
 .idea/
 .vscode/
 
@@ -19,7 +19,7 @@ venv/
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# System files (macOS, Windows)
+# System files
 .DS_Store      # macOS
 Thumbs.db      # Windows
 
